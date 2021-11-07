@@ -3,6 +3,7 @@ import './App.css';
 import AppBar from '../AppBar/AppBar';
 import HomePage from '../../pages/HomePage';
 import MoviesPage from '../../pages/MoviesPage';
+import MovieDetailsPage from '../../pages/MovieDetailsPage';
 import NotFoundPage from '../../pages/NotFoundPage';
 
 function App() {
@@ -14,7 +15,11 @@ function App() {
           <HomePage />
         </Route>
 
-        <Route path="/movies">
+        <Route path="/movies/:movieId">
+          <MovieDetailsPage />
+        </Route>
+
+        <Route path="/movies" exact>
           <MoviesPage />
         </Route>
 
