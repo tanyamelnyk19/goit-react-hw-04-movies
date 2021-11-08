@@ -19,3 +19,21 @@ export async function getMovieById(movieId) {
   );
   return data;
 }
+
+// запрос о касте
+export async function getMovieCastById(movieId) {
+  const { data } = await axios.get(
+    `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`,
+  );
+  return data;
+}
+
+// запрос об отзывах
+export async function getMovieReviewsById(movieId) {
+  const {
+    data: { results },
+  } = await axios.get(
+    `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
+  );
+  return results;
+}

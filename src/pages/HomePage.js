@@ -6,7 +6,9 @@ export default function HomePage() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    getMovies().then(res => setMovies(res));
+    getMovies()
+      .then(res => setMovies(res))
+      .catch(err => console.log(err));
   }, []);
 
   return (
