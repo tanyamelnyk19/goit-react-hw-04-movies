@@ -37,3 +37,13 @@ export async function getMovieReviewsById(movieId) {
   );
   return results;
 }
+
+// поиск фильмов по ключевому слову
+export async function getMoviesByQuery(query) {
+  const {
+    data: { results },
+  } = await axios.get(
+    `search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`,
+  );
+  return results;
+}

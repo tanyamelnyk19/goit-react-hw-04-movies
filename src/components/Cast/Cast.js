@@ -17,9 +17,9 @@ export default function Cast() {
     <>
       <ul>
         {cast &&
-          cast.cast.map(({ profile_path, name, character }) => {
+          cast.cast.map(({ id, profile_path, name, character }) => {
             return (
-              <li>
+              <li key={id}>
                 <img src={`${castUrl}${profile_path}`} alt={name}></img>
                 <p>{name}</p>
                 <p>Character: {character}</p>
