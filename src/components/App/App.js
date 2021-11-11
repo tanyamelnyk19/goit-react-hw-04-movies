@@ -10,18 +10,22 @@ import MyLoader from '../MyLoader/MyLoader';
 // import NotFoundPage from '../../pages/NotFoundPage';
 
 const HomePage = lazy(() =>
-  import('../../pages/HomePage' /* webpackChunkName: "HomePage" */),
+  import('../../pages/HomePage/HomePage' /* webpackChunkName: "HomePage" */),
 );
 const MoviesPage = lazy(() =>
-  import('../../pages/MoviesPage' /* webpackChunkName: "MoviesPage" */),
+  import(
+    '../../pages/MoviesPage/MoviesPage' /* webpackChunkName: "MoviesPage" */
+  ),
 );
 const MovieDetailsPage = lazy(() =>
   import(
-    '../../pages/MovieDetailsPage' /* webpackChunkName: "MovieDetailsPage" */
+    '../../pages/MovieDetailsPage/MovieDetailsPage' /* webpackChunkName: "MovieDetailsPage" */
   ),
 );
 const NotFoundPage = lazy(() =>
-  import('../../pages/NotFoundPage' /* webpackChunkName: "NotFoundPage" */),
+  import(
+    '../../pages/NotFoundPage/NotFoundPage' /* webpackChunkName: "NotFoundPage" */
+  ),
 );
 
 function App() {

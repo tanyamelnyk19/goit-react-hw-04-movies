@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { getMoviesByQuery } from '../services/moviesApi';
+import { getMoviesByQuery } from '../../services/moviesApi';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 export default function MoviesPage() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const location = useLocation();
 
   const handleInputChange = e => {
     setQuery(e.target.value);
@@ -45,7 +47,16 @@ export default function MoviesPage() {
         <ul>
           {results.map(movie => (
             <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+              <Link
+                to={{
+                  pathname: `/movies/${movie.id}`,
+                  state: {
+                    from: { location, label: 'back to movies' },
+                  },
+                }}
+              >
+                {movie.title}
+              </Link>
             </li>
           ))}
         </ul>

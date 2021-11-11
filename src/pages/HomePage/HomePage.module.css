@@ -1,0 +1,12 @@
+.heading {
+  color: #f3213d;
+  text-shadow: 1px 1px 2px #000000, 0 0 0.2em rgb(211 192 192);
+}
+
+.movie + .movie {
+  margin-top: 5px;
+}
+
+.list {
+  list-style: circle;
+}
