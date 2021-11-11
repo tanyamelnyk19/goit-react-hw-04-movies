@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieCastById } from '../../services/moviesApi';
+import s from './Cast.module.css';
 
 export default function Cast() {
   const { movieId } = useParams();
@@ -17,18 +18,19 @@ export default function Cast() {
 
   return (
     <>
-      <ul>
+      <ul className={s.cast}>
         {cast &&
           cast.cast.map(({ id, profile_path, name, character }) => {
             return (
-              <li key={id}>
+              <li key={id} className={s.actor}>
                 <img
                   src={profile_path ? `${castUrl}${profile_path}` : noPhoto}
+                  className={s.photo}
                   width="92"
                   alt={name}
                 ></img>
-                <p>{name}</p>
-                <p>Character: {character}</p>
+                <h4 className={s.name}>{name}</h4>
+                <p className={s.text}>Character: {character}</p>
               </li>
             );
           })}

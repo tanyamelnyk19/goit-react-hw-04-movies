@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { getMoviesByQuery } from '../../services/moviesApi';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
+import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const [query, setQuery] = useState('');
@@ -27,9 +28,9 @@ export default function MoviesPage() {
 
   return (
     <>
-      <form className="SearchForm" onSubmit={handleFormSubmit}>
+      <form className={s.form} onSubmit={handleFormSubmit}>
         <input
-          className="SearchForm-input"
+          className={s.input}
           value={query}
           type="text"
           autoComplete="off"
@@ -38,7 +39,7 @@ export default function MoviesPage() {
           onChange={handleInputChange}
         />
 
-        <button type="submit" className="SearchForm-button">
+        <button type="submit" className={s.button}>
           Search
         </button>
       </form>

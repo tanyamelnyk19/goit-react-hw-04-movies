@@ -1,0 +1,29 @@
+.movie {
+  padding-bottom: 16px;
+  display: flex;
+  border-bottom: 1px solid #2a363b;
+}
+
+.poster {
+  width: 250px;
+  border-radius: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.title {
+  color: #f3213d;
+}
+
+.text {
+  margin: 0;
+}
+
+.list {
+  margin: 0;
+  list-style: circle;
+}

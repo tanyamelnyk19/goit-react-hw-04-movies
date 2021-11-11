@@ -5,6 +5,7 @@ import { getMovieById } from '../../services/moviesApi';
 import Cast from '../../components/Cast/Cast';
 import Reviews from '../../components/Reviews/Reviews';
 import MovieInfo from '../../components/MovieInfo/MovieInfo';
+import s from './MovieDetailsPage.module.css';
 
 export default function MovieDetailsPage() {
   const { url } = useRouteMatch();
@@ -25,21 +26,39 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <button type="button" onClick={handleGoBackClick}>
-        Go back
+      <button type="button" className={s.button} onClick={handleGoBackClick}>
+        ← Go back
       </button>
 
-      {movie && <MovieInfo movie={movie} />}
+      {movie ? (
+        <>
+          <MovieInfo movie={movie} />
 
-      <p>Additional information</p>
-      <ul>
-        <li>
-          <NavLink to={`${url}/cast`}>Cast</NavLink>
-        </li>
-        <li>
-          <NavLink to={`${url}/reviews`}>Reviews</NavLink>
-        </li>
-      </ul>
+          <p>Additional information</p>
+          <ul>
+            <li>
+              <NavLink
+                to={`${url}/cast`}
+                className={s.link}
+                activeClassName={s.activeLink}
+              >
+                Cast
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={`${url}/reviews`}
+                className={s.link}
+                activeClassName={s.activeLink}
+              >
+                Reviews
+              </NavLink>
+            </li>
+          </ul>
+        </>
+      ) : (
+        <p>No information about film!</p>
+      )}
 
       <Route path="/movies/:movieId/cast">
         <Cast />

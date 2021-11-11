@@ -1,0 +1,34 @@
+.cast {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.actor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: calc((100% - 4 * 10px) / 5);
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border: 1px solid #f3213d;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.photo {
+  border-radius: 10px;
+}
+
+.name {
+  color: #f3213d;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.text {
+  margin-top: 0;
+}

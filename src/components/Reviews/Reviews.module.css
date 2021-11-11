@@ -1,0 +1,12 @@
+.list {
+  list-style: circle;
+}
+
+.author {
+  color: #f3213d;
+}
+
+.text {
+  font-style: italic;
+  font-size: 14px;
+}
