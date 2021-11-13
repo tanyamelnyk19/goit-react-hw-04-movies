@@ -1,4 +1,5 @@
 import s from './MovieInfo.module.css';
+import PropTypes from 'prop-types';
 
 export default function MovieInfo({ movie }) {
   const posterUrl = 'https://image.tmdb.org/t/p/w500';
@@ -33,3 +34,7 @@ export default function MovieInfo({ movie }) {
     </div>
   );
 }
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object,
+};

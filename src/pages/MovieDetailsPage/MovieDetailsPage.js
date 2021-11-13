@@ -38,7 +38,12 @@ export default function MovieDetailsPage() {
           <ul>
             <li>
               <NavLink
-                to={`${url}/cast`}
+                to={{
+                  pathname: `${url}/cast`,
+                  state: {
+                    from: location?.state?.from ?? '/movie',
+                  },
+                }}
                 className={s.link}
                 activeClassName={s.activeLink}
               >
@@ -47,7 +52,12 @@ export default function MovieDetailsPage() {
             </li>
             <li>
               <NavLink
-                to={`${url}/reviews`}
+                to={{
+                  pathname: `${url}/reviews`,
+                  state: {
+                    from: location?.state?.from ?? '/movie',
+                  },
+                }}
                 className={s.link}
                 activeClassName={s.activeLink}
               >

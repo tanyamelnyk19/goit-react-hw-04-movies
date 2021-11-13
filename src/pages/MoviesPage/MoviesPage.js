@@ -1,13 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getMoviesByQuery } from '../../services/moviesApi';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(null);
   const location = useLocation();
+  const history = useHistory();
+
+  useEffect(() => {
+    const searchQuery = new URLSearchParams(location.search).get('query');
+
+    if (!searchQuery) {
+      return;
+    }
+
+    if (searchQuery) {
+      getMoviesByQuery(searchQuery)
+        .then(res => setResults(res))
+        .catch(err => console.log(err));
+
+      setQuery('');
+    }
+  }, [location.search]);
 
   const handleInputChange = e => {
     setQuery(e.target.value);
@@ -15,15 +32,11 @@ export default function MoviesPage() {
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    resetForm();
 
-    getMoviesByQuery(query)
-      .then(res => setResults(res))
-      .catch(err => console.log(err));
-  };
-
-  const resetForm = () => {
-    setQuery('');
+    history.push({
+      ...location,
+      search: `query=${query}`,
+    });
   };
 
   return (

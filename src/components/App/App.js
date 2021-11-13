@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import AppBar from '../AppBar/AppBar';
 import { lazy, Suspense } from 'react';
@@ -49,6 +49,8 @@ function App() {
           <Route>
             <NotFoundPage />
           </Route>
+
+          <Redirect to="/" />
         </Switch>
       </Suspense>
     </div>
