@@ -1,0 +1,7 @@
+.movie + .movie {
+  margin-top: 5px;
+}
+
+.list {
+  list-style: circle;
+}

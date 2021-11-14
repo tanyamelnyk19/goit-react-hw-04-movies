@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getMoviesByQuery } from '../../services/moviesApi';
-import { Link } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router';
+import MoviesList from '../../components/MoviesList/MoviesList';
 import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
@@ -57,24 +57,7 @@ export default function MoviesPage() {
         </button>
       </form>
 
-      {results && (
-        <ul>
-          {results.map(movie => (
-            <li key={movie.id}>
-              <Link
-                to={{
-                  pathname: `/movies/${movie.id}`,
-                  state: {
-                    from: { location, label: 'back to movies' },
-                  },
-                }}
-              >
-                {movie.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      {results && <MoviesList movies={results} />}
     </>
   );
 }
